@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html>
+	<!-- David A. Emory 
+			10/02/2014
+			Text Adventure Game v0.4 -->
+	<head> 
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+		<meta name="author" content="David Emory"> 
+		<title>David Emory's: Treasure on Ghost Island  v0.4</title>
+		  <!-- Still working on the title --> 
+	<script type= "text/javascript"; src= "locations.js"></script> 
+	<script type= "text/javascript">
+	// Player location and Point scoring variables 
+	  var playerLoc = 0;
+	  var locLast = 0; 
+	  var score = 0;
+	  
+	//Visited Location 
+	  var visitedLoc_0 = false;
+	  var visitedLoc_1 = false;
+	  var visitedLoc_2 = false; 
+	  var visitedLoc_3 = false;
+	  var visitedLoc_4 = false; 
+	  var visitedLoc_5 = false;
+	  var visitedLoc_6 = false;
+	  var visitedLoc_7 = false;
+	  var visitedLoc_8 = false;
+	  var visitedLoc_9 = false;
+	  var visitedLoc_10 = false;
+	  var visitedLoc_11 = false; 
+    
+	//Display Text 
+	  function dispMsg(msg) { 
+			  var message = document.getElementById("taDisplay");  
+				message.value= msg + "\n\n" + message.value;
+		}
+			
+		//Display Score
+		function dispScore(){ 
+			var targetScore = document.getElementById("taScore"); 
+				targetScore.value = score; 
+	  } 
+
+	  //Score Counter  
+	  function scrCounter(){
+          if (visitedLoc_0 === false && playerLoc === 0){ 
+              visitedLoc_0 = true; 
+              score += 5 
+              dispScore(); 
+          } 
+          if (visitedLoc_1 === false && playerLoc === 1){
+              visitedLoc_1 = true; 
+              score += 5; 
+              dispScore(); 
+          }
+          if (visitedLoc_2 === false && playerLoc === 2){
+              visitedLoc_2 = true; 
+              score += 5;  
+              dispScore();
+          }
+          if (visitedLoc_3 === false && playerLoc === 3){ 
+              visitedLoc_3 = true; 
+              score += 5;
+              dispScore();
+          }
+          if (visitedLoc_4 === false && playerLoc === 4){ 
+              visitedLoc_4 = true; 
+              score += 5 
+              dispScore(); 
+          }
+          if (visitedLoc_5 === false && playerLoc === 5){ 
+              visitedLoc_5 = true; 
+              score += 5 
+              dispScore(); 
+          }
+          if (visitedLoc_6 === false && playerLoc === 6){ 
+              visitedLoc_6 = true; 
+              score += 5 
+              dispScore(); 
+          }  
+           if (visitedLoc_7 === false && playerLoc === 7){ 
+              visitedLoc_7 = true; 
+              score += 5 
+              dispScore(); 
+          }
+           if (visitedLoc_8 === false && playerLoc === 8){ 
+              visitedLoc_8 = true; 
+              score += 5 
+              dispScore(); 
+          }
+           if (visitedLoc_9 === false && playerLoc === 9){ 
+              visitedLoc_9 = true; 
+              score += 5 
+              dispScore(); 
+          }
+          if (visitedLoc_10 === false && playerLoc === 10){ 
+              visitedLoc_10 = true; 
+              score += 5 
+              dispScore(); 
+          }
+          if (visitedLoc_11 === false && playerLoc === 11){ 
+              visitedLoc_11 = true; 
+              score += 5 
+              dispScore(); 
+          }       
+    }
+    
+    //Button Disabler 
+    function btnDisabler(){ 
+            disNorth();
+            disSouth();
+            disEast();
+            disWest();
+    }
+    function disNorth(){ 
+        if (playerLoc === 0 || playerLoc === 3 ||playerLoc === 5 ||playerLoc === 6 ||playerLoc === 9 ||playerLoc === 11){
+              document.getElementById('btnNorth').disabled = true; 
+        } else { 
+            document.getElementById('btnNorth').disabled = false; 
+          }
+    }       
+    function disSouth(){ 
+        if (playerLoc === 0 ||playerLoc === 4 ||playerLoc === 6 ||playerLoc === 9 ||playerLoc === 10 ||playerLoc === 11){
+            document.getElementById('btnSouth').disabled = true; 
+        } else { 
+            document.getElementById('btnSouth').disabled = false; 
+          }
+    }        
+    function disEast(){ 
+        if (playerLoc === 2 ||playerLoc === 3 ||playerLoc === 5 ||playerLoc === 6 ||playerLoc === 7 ||playerLoc === 9 ||playerLoc === 10){
+            document.getElementById('btnEast').disabled = true;
+        } else { 
+            document.getElementById('btnEast').disabled = false; 
+          }
+    }
+    function disWest(){ 
+        if (playerLoc === 0 ||playerLoc === 2 ||playerLoc === 3 ||playerLoc === 5 ||playerLoc === 7 ||playerLoc === 10 ||playerLoc === 11){
+            document.getElementById('btnWest').disabled = true; 
+        } else { 
+            document.getElementById('btnWest').disabled = false;
+          }
+    }
+            
+    //Command Box Function    
+    function btnGo_Click(){
+        var targetCommand = document.getElementById("txtCommand");
+        var userInput = targetCommand.value;
+        userInput = userInput.toUpperCase();
+        switch(userInput){
+          case "N":
+            dirNorth();
+          break;
+          case "S":
+            dirSouth();
+          break;
+          case "W": 
+            dirWest(); 
+          break;
+          case "E": 
+            dirEast();
+          break;
+          default: 
+            dispMsg("Command Not Recognized. Use N,S,E,W, or n,s,e,w."); 
+        }
+    
+    }
+
+	  //onload function  
+	  function location_Onload() {
+       switch(playerLoc){
+          case 0: 
+            playerLoc = 0; 
+            scrCounter();
+            btnDisabler();
+            dispMsg("You are currently on your ship. You have landed on a beach in search of treasure said to be on the island. The only possible way to go is to the east on to the beach as there is ocean all around you.");
+       }
+    }
+    
+    //Enterkey Function Copied from example project 
+    //Checks for the Enter key which its code # is 13
+    //e.which does not work in IE
+    //also seen on stackoverflow-> http://stackoverflow.com/questions/5931320/how-do-i-use-the-enter-key-as-an-event-handler-javascript
+    function txtEnter(e){
+          if (e.which === 13){
+              document.getElementById("btnGo").onclick(); 
+          }
+    }
+      
+    //Location Caller            
+    function locCall(){ 
+        switch(playerLoc){ 
+            case 0 :
+              locShip();
+            break;
+            case 1 :
+              locBeach();
+            break;
+            case 2 :
+              locBridge();
+            break;
+            case 3 :
+              locForest();
+            break;
+            case 4 :
+              locBase();
+            break;
+            case 5 :
+              locSummit();
+            break;
+            case 6 :
+              locCave();
+            break;
+            case 7 :
+              locFront();
+            break;
+            case 8 :
+              locMansion();
+            break;
+            case 9 :
+              locCellar();
+            break;
+            case 10 :
+              locBedroom();
+            break;
+            case 11 :
+              locKitchen();
+            break;
+        }
+    }             
+    //Directional Functions                
+	  function dirNorth(){	  
+	     switch(playerLoc){
+	       case 1:
+          playerLoc = 3;
+          scrCounter();
+          btnDisabler();
+          locCall(); 
+				 break; 
+				 case 2:
+						playerLoc = 1;
+						btnDisabler();
+						locCall(); 
+				 break;
+				 case 4:  
+						playerLoc = 5;
+						scrCounter();
+						btnDisabler();
+						locCall();
+				 break;
+				 case 7:
+						playerLoc = 2;
+						btnDisabler();
+						locCall();
+				 break;
+				 case 8:   
+			        playerLoc = 7;
+			        btnDisabler();
+			        locCall();
+				 break;
+				 case 10:   
+			        playerLoc = 8;
+			        btnDisabler();
+			        locCall();
+				 break; 
+				 default:
+            btnDisabler();   
+						locError(); 
+		    }
+		}   
+	  function dirSouth(){	   
+			  switch(playerLoc){
+			      case 1: 
+			         playerLoc = 2;
+					     scrCounter();
+					     btnDisabler();
+					     locCall();
+			      break;
+			      case 2: 
+			         playerLoc = 7;
+					     scrCounter();
+					     btnDisabler();
+					     locCall();
+				    break;
+				    case 7: 
+			         playerLoc = 8;
+					     scrCounter();
+					     btnDisabler();
+					     locCall(); 
+					  break;  
+				    case 3:  
+						   playerLoc = 1;
+						   btnDisabler();
+						   locCall(); 
+					  break;
+					  case 5:  
+						   playerLoc = 4;
+						   btnDisabler();
+						   locCall(); 
+						break;
+						case 8:   
+			        playerLoc = 10;
+			        scrCounter();
+			        btnDisabler();
+			        locCall();
+					  break;      
+					  default:  
+               btnDisabler();
+               locError();  
+		    }	
+		} 
+		function dirEast(){	   
+			  switch(playerLoc) { 
+			      case 0: 
+			        playerLoc = 1;
+			        scrCounter();
+			        btnDisabler();
+			        locCall(); 
+            break; 
+					  case 1:
+						  playerLoc = 4;
+						  scrCounter(); 
+						  btnDisabler();
+						  locCall();
+					  break;
+            case 4:
+						  playerLoc = 6;
+						  scrCounter(); 
+						  btnDisabler();
+						  locCall();
+					  break;
+					  case 8:
+						  playerLoc = 9;
+						  scrCounter();
+						  btnDisabler();
+						  locCall();
+						break;
+						case 11:
+				      playerLoc = 8;
+				      btnDisabler();
+				      locCall();
+					  break;
+					  default:  
+              btnDisabler();
+						  locError(); 	
+				}	
+		}	  	
+		function dirWest(){
+			  switch(playerLoc){
+				    case 1:
+				      playerLoc = 0;
+				      btnDisabler();
+				      locCall();
+			      break;
+			      case 4:   
+			        playerLoc = 1;
+			        btnDisabler();
+			        locCall();
+				    break;
+				    case 6:   
+			        playerLoc = 4;
+			        btnDisabler();
+			        locCall();
+				    break;
+				    case 9:   
+			        playerLoc = 8;
+			        btnDisabler();
+			        locCall();
+				    break;
+				    case 8:   
+			        playerLoc = 11;
+			        scrCounter();
+			        btnDisabler();
+			        locCall();
+					  break;  
+				    default: 
+              btnDisabler();
+					    locError(); 
+			  }		
+		}	
+
+	</script>
+	<body onload = "location_Onload()" style = "text-align: center">
+		<h1> The Adventures of Captain Chin: Treasure on Ghost Island v0.4 </h1>
+		<textarea rows="20"  cols="60" id="taDisplay" readonly> </textarea>
+		<br>
+		<input type = "button" 
+           id   = "btnGo"
+           value = "Go" 
+           onclick = "btnGo_Click()"/> 
+           
+		<input type = "text"
+           id   = "txtCommand"
+           placeholder = "Enter Your Command"
+           onkeypress = "txtEnter(event)"/>
+          <br/>
+          <br/>
+		<input type = "button"
+           value = "North" 
+           id    = "btnNorth" 
+           onclick = "dirNorth()" /> 
+			   
+		<input type = "button"
+           value = "South"
+           id    = "btnSouth"
+           onclick = "dirSouth()" />
+			   
+		<input type = "button"
+           value = "West"
+           id    = "btnWest"
+           onclick = "dirWest()" />
+		
+		<input type = "button" 
+           value = "East"
+           id    = "btnEast" 
+           onclick = "dirEast()" />       
+		<p> Score
+		<br>
+		<textarea rows="1" cols= "5" id="taScore" readonly></textarea>
+		</p>
+		<p> Having Issues? 
+		<a href="mailto:david.emory@marist.edu"> Click Here </a> 
+		</p>
+		<p> 
+		<a href="http://validator.w3.org/#validate_by_input"> Validate </a>	
+		</p>
+	</body>
+</html>
