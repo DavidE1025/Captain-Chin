@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html>
 	<!-- David A. Emory 
-			10/02/2014
-			Text Adventure Game v0.4 -->
+			11/13/2014
+			Text Adventure Game v0.6 -->
 	<head> 
 		<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
 		<meta name="author" content="David Emory"> 
-		<title>David Emory's: Treasure on Ghost Island  v0.4</title>
-		  <!-- Still working on the title --> 
+		<title>David Emory's: The Adventures of Captian Chin v0.6</title>
 	<script type= "text/javascript"; src= "locations.js"></script> 
 	<script type= "text/javascript">
+	//Items 
+    var lanturn = false; 
+    var map = false; 
+    var sword = false; 
+    
 	// Player location and Point scoring variables 
-	  var playerLoc = 0;
-	  var locLast = 0; 
+	  var playerLoc = 0; 
 	  var score = 0;
 	  
 	//Visited Location 
@@ -416,6 +419,9 @@
 		<p> Score
 		<br>
 		<textarea rows="1" cols= "5" id="taScore" readonly></textarea>
+		</p>
+		<p>
+		<img src = "map.jpg">
 		</p>
 		<p> Having Issues? 
 		<a href="mailto:david.emory@marist.edu"> Click Here </a> 
