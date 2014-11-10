@@ -39,5 +39,5 @@ function locError(){
 dispMsg("Stop, you cannot go that way.");
 }
 function locHelp(){ 
-dispMsg("Here is a list of commands to type: N = go north, S = go south" )
+dispMsg("To move use the directional buttons below or type N, S, E, W, or even n, s, e, w.")
 } 

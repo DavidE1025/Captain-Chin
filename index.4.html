@@ -159,11 +159,14 @@
           case "W": 
             dirWest(); 
           break;
-          case "E": 
+          case "Ea": 
             dirEast();
           break;
+          case "H": 
+            locHelp();
+          break;
           default: 
-            dispMsg("Command Not Recognized. Use N,S,E,W, or n,s,e,w."); 
+            dispMsg("Command Not Recognized. Click the help button for a list of commands or type Help into the command box."); 
         }
     
     }
