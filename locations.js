@@ -38,3 +38,6 @@ dispMsg("You walk into the kitchen there is broken glass covering the whole floo
 function locError(){
 dispMsg("Stop, you cannot go that way.");
 }
+function locHelp(){ 
+dispMsg("Here is a list of commands to type: N = go north, S = go south" )
+} 
