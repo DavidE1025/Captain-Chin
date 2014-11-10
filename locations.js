@@ -14,8 +14,13 @@ dispMsg("You walk into the forest. It is dark in every direction and you can hea
 function locBase(){           
 dispMsg("You arrive at the base of the mountain as it looms over head you can see a path to the north that leads up the mountain and to the east is a cave. The beach is to the west.");
 }    
-function locSummit(){           
+function locSummit(){
+if (sword === false){   
+  dispMsg("You walk up the mountain and arrive at the summit there is a sword on an alter here. You can see the entire island. Past the bridge to the south of the beach you can see a mansion, on the east side of the mountain there is what looks to be a temple surrounded by a forest, and back the west you can see your ship.") 
+} else { 
+    if (sword === true) 
 dispMsg("You walk up the mountain and arrive at the summit. You can see the entire island. Past the bridge to the south of the beach you can see a mansion, on the other side of the mountain there is what looks to be a temple surrounded by a forest, and back the west you can see your ship."); 
+  }
 }    
 function locCave(){           
 dispMsg("You head into the cave but it is to dark to continue, you need some source of light.");					  
@@ -29,15 +34,25 @@ dispMsg("You walk into the desolated mansion, to the south up some stairs is the
 function locCellar(){           
 dispMsg("You walk down the stairs into the cellar. Its hard to really see anything in this darkness."); 
 }    
-function locBedroom(){           
-dispMsg("You head up the stairs into the bedroom. There is a lantern hanging on the bed post and the burnt remains of a mattress.");
+function locBedroom(){
+    if (lanturn === false){      
+      dispMsg("You head up the stairs into the bedroom. There is a lantern hanging on the bed post and the burnt remains of a mattress.");
+    } else { 
+      if(lanturn === true) 
+dispMsg("You head up the stairs into the bedroom where you picked up the lanturn you see the burnt remains of a mattress.");
+      }
 }    
-function locKitchen(){           
-dispMsg("You walk into the kitchen there is broken glass covering the whole floor and some flint on the counter.");
+function locKitchen(){
+    if(flint === false){   
+      dispMsg("You walk into the kitchen there is broken glass covering the whole      floor and some flint on the counter.");
+    } else { 
+      if(flint === true) 
+      dispMsg("You walk into the kitchen there is only broken glass on the floor.")
+      }
 }
 function locError(){
 dispMsg("Stop, you cannot go that way.");
 }
 function locHelp(){ 
-dispMsg("To move use the directional buttons below or type N, S, E, W, or even n, s, e, w.")
+dispMsg("To move use the directional buttons below or type N, S, E, W, or even n, s, e, w. To take items use type T, and to view your inventory type I or use th einventory button.")
 } 

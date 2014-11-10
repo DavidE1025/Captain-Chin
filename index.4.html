@@ -11,8 +11,8 @@
 	<script type= "text/javascript">
 	//Items 
     var lanturn = false; 
-    var map = false; 
-    var sword = false; 
+    var sword = false;
+    var flint = false;   
     
 	// Player location and Point scoring variables 
 	  var playerLoc = 0; 
@@ -159,7 +159,7 @@
           case "W": 
             dirWest(); 
           break;
-          case "Ea": 
+          case "E": 
             dirEast();
           break;
           case "H": 
@@ -191,7 +191,6 @@
               document.getElementById("btnGo").onclick(); 
           }
     }
-      
     //Location Caller            
     function locCall(){ 
         switch(playerLoc){ 
@@ -382,8 +381,7 @@
               btnDisabler();
 					    locError(); 
 			  }		
-		}	
-
+		}	                                           
 	</script>
 	<body onload = "location_Onload()" style = "text-align: center">
 		<h1> The Adventures of Captain Chin: Treasure on Ghost Island v0.4 </h1>
@@ -402,6 +400,10 @@
            id = " btnHelp" 
            value = "Help" 
            onclick = "locHelp();"> 
+		<input type = "button"
+						id = " btnInvent" 
+						value = "Inventory" 
+						onclick = "itemInventory();"> 
           <br/>
           <br/>
 		<input type = "button"
