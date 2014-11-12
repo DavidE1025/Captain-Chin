@@ -9,7 +9,7 @@
 		<title>David Emory's: The Adventures of Captian Chin v0.6</title>
 	<script type= "text/javascript"; src= "locations.js"></script> 
 	<script type= "text/javascript">
-	//Items 
+	//Items
     var lanturn = false; 
     var sword = false;
     var flint = false;   
@@ -25,7 +25,7 @@
 	  var visitedLoc_3 = false;
 	  var visitedLoc_4 = false; 
 	  var visitedLoc_5 = false;
-	  var visitedLoc_6 = false;
+	  var visitedLoc_6 = false;	  
 	  var visitedLoc_7 = false;
 	  var visitedLoc_8 = false;
 	  var visitedLoc_9 = false;
@@ -165,12 +165,76 @@
           case "H": 
             locHelp();
           break;
+          case "T": 
+            itemTake();
+          break;
+          case "I": 
+            itemInventory();
+          break;
           default: 
             dispMsg("Command Not Recognized. Click the help button for a list of commands or type Help into the command box."); 
         }
     
     }
-
+    //Take Fucntion 
+    function itemTake(){ 
+      switch(playerLoc){ 
+        case 5:
+          if (sword === false){
+              sword = true; 
+              dispMsg("You pick up the sword");             
+          }     
+        break;
+        case 10:
+          if (lanturn === false){
+              lanturn = true; 
+              dispMsg("You pick up the lanturn");
+          }    
+        break;
+        case 11:
+          if (flint === false){ 
+              flint = true; 
+              dispMsg("You pick up the flint"); 
+          }    
+        break;
+        default: 
+        dispMsg("There are no items to pick up in the area.");
+      }
+    }
+    //Inventory Function
+    function itemInventory(){
+        if (sword === false && flint === false && lanturn === false){ 
+            dispMsg("There are no items in the inventory")
+        } else { 
+            if (sword === false && flint === false && lanturn === true){
+                dispMsg("Inventory: Lanturn") 
+            } else { 
+                if (sword === false && flint === true && lanturn === false){
+                    dispMsg("Inventory: Flint") 
+                } else { 
+                    if (sword === true && flint === false && lanturn === false){
+                        dispMsg("Inventory: Ancient Sword") 
+                    } else { 
+                        if (sword === false && flint === true && lanturn === true){
+                            dispMsg("Inventory: Flint and Lanturn") 
+                        } else { 
+                            if (sword === true && flint === false && lanturn === true){
+                                dispMsg("Inventory: Ancient Sword and Lanturn") 
+                            } else { 
+                                if (sword === true && flint === true && lanturn === false){ 
+                                    dispMsg("Inventory: Ancient Sword and Flint")
+                                } else { 
+                                    if (sword === true && flint === true && lanturn === true){
+                                        dispMsg("Inventory: Ancient Sword, Flint, and Lanturn") 
+                                    }    
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }                    
+    }      
 	  //onload function  
 	  function location_Onload() {
        switch(playerLoc){
@@ -385,25 +449,25 @@
 	</script>
 	<body onload = "location_Onload()" style = "text-align: center">
 		<h1> The Adventures of Captain Chin: Treasure on Ghost Island v0.4 </h1>
-		<textarea rows="20"  cols="60" id="taDisplay" readonly> </textarea>
+		<textarea rows="20"  cols="60" id="taDisplay" readonly></textarea>
 		<br>
 		<input type = "button" 
            id   = "btnGo"
            value = "Go" 
-           onclick = "btnGo_Click()"/> 
+           onclick = "btnGo_Click()" /> 
            
 		<input type = "text"
            id   = "txtCommand"
            placeholder = "Enter Your Command"
-           onkeypress = "txtEnter(event)"/>
+           onkeypress = "txtEnter(event)" />
     <input type = "button"
            id = " btnHelp" 
            value = "Help" 
-           onclick = "locHelp();"> 
+           onclick = "locHelp();" /> 
 		<input type = "button"
 						id = " btnInvent" 
 						value = "Inventory" 
-						onclick = "itemInventory();"> 
+						onclick = "itemInventory();" /> 
           <br/>
           <br/>
 		<input type = "button"
@@ -430,7 +494,7 @@
 		<textarea rows="1" cols= "5" id="taScore" readonly></textarea>
 		</p>
 		<p>
-		<img src = "map.jpg">
+		<img src = "map.jpg"/>
 		</p>
 		<p> Having Issues? 
 		<a href="mailto:david.emory@marist.edu"> Click Here </a> 
