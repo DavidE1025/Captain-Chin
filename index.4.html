@@ -181,19 +181,31 @@
     function itemTake(){ 
       switch(playerLoc){ 
         case 5:
+            if(sword === false){ 
               sword = true; 
               dispMsg("You pick up the sword");
-              inventList += "Ancient Sword\n";                   
+              inventList += "Ancient Sword\n";
+            } else { 
+              dispMsg("There are no items to pick up in the area");
+              }
         break;
         case 10:
+            if(lanturn === false){
               lanturn = true; 
               dispMsg("You pick up the lanturn");
               inventList += "Lanturn\n";
+            } else {
+              dispMsg("There are no items to pick up in the area.");
+              }  
         break;
-        case 11: 
+        case 11:
+            if(flint === false){
               flint = true; 
               dispMsg("You pick up the flint"); 
               inventList += "Flint\n";
+            } else {
+              dispMsg("There are no items to pick up in the area.");
+              }  
         break;
         default: 
         dispMsg("There are no items to pick up in the area.");
