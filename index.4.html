@@ -17,6 +17,7 @@
 	// Player location and Point scoring variables 
 	  var playerLoc = 0; 
 	  var score = 0;
+	  var inventList = "Inventory:\n" 
 	  
 	//Visited Location 
 	  var visitedLoc_0 = false;
@@ -169,7 +170,7 @@
             itemTake();
           break;
           case "I": 
-            itemInventory();
+            dispMsg(inventList);
           break;
           default: 
             dispMsg("Command Not Recognized. Click the help button for a list of commands or type Help into the command box."); 
@@ -180,61 +181,24 @@
     function itemTake(){ 
       switch(playerLoc){ 
         case 5:
-          if (sword === false){
               sword = true; 
-              dispMsg("You pick up the sword");             
-          }     
+              dispMsg("You pick up the sword");
+              inventList += "Ancient Sword\n";                   
         break;
         case 10:
-          if (lanturn === false){
               lanturn = true; 
               dispMsg("You pick up the lanturn");
-          }    
+              inventList += "Lanturn\n";
         break;
-        case 11:
-          if (flint === false){ 
+        case 11: 
               flint = true; 
               dispMsg("You pick up the flint"); 
-          }    
+              inventList += "Flint\n";
         break;
         default: 
         dispMsg("There are no items to pick up in the area.");
       }
-    }
-    //Inventory Function
-    function itemInventory(){
-        if (sword === false && flint === false && lanturn === false){ 
-            dispMsg("There are no items in the inventory")
-        } else { 
-            if (sword === false && flint === false && lanturn === true){
-                dispMsg("Inventory: Lanturn") 
-            } else { 
-                if (sword === false && flint === true && lanturn === false){
-                    dispMsg("Inventory: Flint") 
-                } else { 
-                    if (sword === true && flint === false && lanturn === false){
-                        dispMsg("Inventory: Ancient Sword") 
-                    } else { 
-                        if (sword === false && flint === true && lanturn === true){
-                            dispMsg("Inventory: Flint and Lanturn") 
-                        } else { 
-                            if (sword === true && flint === false && lanturn === true){
-                                dispMsg("Inventory: Ancient Sword and Lanturn") 
-                            } else { 
-                                if (sword === true && flint === true && lanturn === false){ 
-                                    dispMsg("Inventory: Ancient Sword and Flint")
-                                } else { 
-                                    if (sword === true && flint === true && lanturn === true){
-                                        dispMsg("Inventory: Ancient Sword, Flint, and Lanturn") 
-                                    }    
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }                    
-    }      
+    }     
 	  //onload function  
 	  function location_Onload() {
        switch(playerLoc){
@@ -448,7 +412,7 @@
 		}	                                           
 	</script>
 	<body onload = "location_Onload()" style = "text-align: center">
-		<h1> The Adventures of Captain Chin: Treasure on Ghost Island v0.4 </h1>
+		<h1> The Adventures of Captain Chin: Treasure on Ghost Island v0.6 </h1>
 		<textarea rows="20"  cols="60" id="taDisplay" readonly></textarea>
 		<br>
 		<input type = "button" 
@@ -467,7 +431,7 @@
 		<input type = "button"
 						id = "btnInvent" 
 						value = "Inventory" 
-						onclick = "itemInventory();"/> 
+						onclick = "dispMsg(inventList);"/> 
           <br/>
           <br/>
 		<input type = "button"
