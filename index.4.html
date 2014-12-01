@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html>
 	<!-- David A. Emory 
-			11/13/2014
-			Text Adventure Game v0.6 -->
+			12/1/2014
+			Text Adventure Game v0.8 -->
 	<head> 
 		<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
 		<meta name="author" content="David Emory"> 
-		<title>David Emory's: The Adventures of Captian Chin v0.6</title>
+		<title>David Emory's: The Adventures of Captian Chin v0.8</title>
 	<script type= "text/javascript" src= "locations.js"></script> 
 	<script type= "text/javascript">
 	//Items Array 
     var item = new Array(); 
-        item[2] = Map; 
-        item[6] = Rum;
-        item[7] = Lantern; 
-        item[8] = Flint;
-        item[9] = Ancient Sword;
+        item[2] = itemMap;
+        item[7] = itemLantern; 
+        item[8] = itemFlint;
+        item[9] = itemAncientSword; 
+        item[14] = itemRum;
         
   //Inventory Array 
     var inventory = new Array(); 
@@ -25,22 +25,22 @@
 	  var score = 0;
 	   
 	// Location Arrays 
-    var location = [location_0,
-                    location_1,
-                    location_2,
-                    location_3,
-                    location_4,
-                    location_5,
-                    location_6,
-                    location_7,
-                    location_8,
-                    location_9,
-                    location_10,
-                    location_11,
-                    location_12,
-                    location_13,
-                    location_14]; 
-        
+    var location = new Array(location_0,
+															location_1,
+															location_2,
+															location_3,
+															location_4,
+															location_5,
+															location_6,
+															location_7,
+															location_8,
+															location_9,
+															location_10,
+															location_11,
+															location_12,
+															location_13,
+															location_14); 
+									
 	//Visited Location 
 	  var visitedLoc_0 = false;
 	  var visitedLoc_1 = false;
@@ -423,14 +423,14 @@
 			dispMsg(location[playerLoc].description);		
 		}	                                           
 	</script>
-	<body onload = "location_Onload()" style = "text-align: center">
-		<h1> The Adventures of Captain Chin: Treasure on Ghost Island v0.6 </h1>
+	<body onload = "location_Onload();" style = "text-align: center">
+		<h1> The Adventures of Captain Chin: Treasure on Ghost Island v0.8 </h1>
 		<textarea rows="20"  cols="60" id="taDisplay" readonly></textarea>
 		<br>
 		<input type = "button" 
            id = "btnGo"
            value = "Go" 
-           onclick = "btnGo_Click()"/> 
+           onclick = "btnGo_Click();"/> 
            
 		<input type = "text"
            id = "txtCommand"
@@ -449,22 +449,22 @@
 		<input type = "button"
            value = "North" 
            id = "btnNorth" 
-           onclick = "dirNorth()"/> 
+           onclick = "dirNorth();"/> 
 			   
 		<input type = "button"
            value = "South"
            id = "btnSouth"
-           onclick = "dirSouth()"/>
+           onclick = "dirSouth();"/>
 			   
 		<input type = "button"
            value = "West"
            id = "btnWest"
-           onclick = "dirWest()"/>
+           onclick = "dirWest();"/>
 		
 		<input type = "button" 
            value = "East"
            id = "btnEast" 
-           onclick = "dirEast()"/>       
+           onclick = "dirEast();"/>       
 		<p> Score
 		<br>
 		<textarea rows="1" cols= "5" id="taScore" readonly></textarea>

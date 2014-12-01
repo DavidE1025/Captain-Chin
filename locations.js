@@ -1,3 +1,4 @@
+
 //locations.js
 
 //Location Blueprint 
@@ -26,7 +27,7 @@ location_1.hasItem = false;
 var location_2 = new Location();
 location_2.id = 2;
 location_2.name = "Forest";
-location_2.description = "You are in a forest you can hear low growls in the distance. You cannot move any further into the forest in nfear of the sounds in the forest. To south is the beach."; 
+location_2.description = "You are in a forest you can hear low growls in the distance. You cannot move any further into the forest in fear of the sounds in the forest. However you do see a map on the ground. To south is the beach."; 
 location_2.hasItem = true; 
 
 var location_3 = new Location();
@@ -51,7 +52,7 @@ var location_6 = new Location();
 location_6.id = 6;
 location_6.name = "Cellar";
 location_6.description = "You are in the cellar it is dark and hard to see anything in the darkness. You can only go west back to the center of the mansion."; 
-location_6.hasItem = true; 
+location_6.hasItem = false; 
 
 var location_7 = new Location();
 location_7.id = 7;
