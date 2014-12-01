@@ -5,9 +5,9 @@
 			Text Adventure Game v0.8 -->
 	<head> 
 		<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-		<meta name="author" content="David Emory"> 
+		<meta name="author" content="David Emory">
 		<title>David Emory's: The Adventures of Captian Chin v0.8</title>
-	<script type= "text/javascript" src= "locations.js"></script> 
+	<script type= "text/javascript" src= "locations.js"></script>
 	<script type= "text/javascript">
 	//Items Array 
     var item = new Array(); 
@@ -25,23 +25,24 @@
 	  var score = 0;
 	   
 	// Location Arrays 
-    var location = new Array(location_0,
-															location_1,
-															location_2,
-															location_3,
-															location_4,
-															location_5,
-															location_6,
-															location_7,
-															location_8,
-															location_9,
-															location_10,
-															location_11,
-															location_12,
-															location_13,
-															location_14); 
-									
-	//Visited Location 
+    var room = new Array()
+                  room[0] = Ship,
+                  room[1] = Beach,
+                  room[2] = UpperForest,
+                  room[3] = MountainBase,
+                  room[4] = Bridge, 
+                  room[5] = Mansion, 
+                  room[6] = Cellar,
+                  room[7] = Bedroom,
+                  room[8] = Kitchen,
+                  room[9] = MountainSummit,
+                  room[10] = Cave,
+                  room[11] = Forest,
+                  room[12] = TempleEntrance,
+                  room[13] = TempleChamber,
+                  room[14] = TreasureRoom; 
+      
+	//Visited Location for scoring use 
 	  var visitedLoc_0 = false;
 	  var visitedLoc_1 = false;
 	  var visitedLoc_2 = false; 
@@ -209,7 +210,7 @@
             dirEast();
           break;
           case "H": 
-            locHelp();
+            dispMsg("Here is a list of commands that are valid: N to go north, S to go south, E to go east, W to go west, T to take an item, and I to view your inventory.");
           break;
           case "T": 
             takeItem();
@@ -218,14 +219,14 @@
             dispInventory();
           break;
           default: 
-            dispMsg("Command Not Recognized. Click the help button for a list of commands or type Help into the command box."); 
+            dispMsg("Command Not Recognized. Click the help button for a list of commands or type H into the command box."); 
         }
     
     }
     //Take Function
       function takeItem() { 
-        inventory.push(items[playerLoc].name);
-        dispMsg("You took the" + items[playerLoc].name);
+        inventory.push(item[playerLoc].name);
+        dispMsg("You took the" + item[playerLoc].name);
         item[playerLoc].takeItem = true;
         hiddenMap(); 
       }
@@ -233,9 +234,9 @@
     //Map Visibility 
         function hiddenMap(){
           if (itemMap.takeItem === true){ 
-              document.getElementById("Map").visibility = "visible";
+              document.getElementById("gameMap").style.visibility = "visible";
           } else { 
-              document.getElementById("Map").visibility = "hidden";
+              document.getElementById("gameMap").style.visibility = "hidden";
             }  
         }
         
@@ -247,14 +248,10 @@
         
 	  //onload function  
 	  function location_Onload() {
-       switch(playerLoc){
-          case 0: 
-            playerLoc = 0; 
+            dispMsg(Ship.description);
             scrCounter();
             btnDisabler();
             hiddenMap();
-       }
-		   dispMsg(location[playerLoc].description);
     }
     //enter key function 
     function txtEnter(e){
@@ -302,7 +299,7 @@
             btnDisabler();   
 						locError(); 
 		    }
-		   dispMsg(location[playerLoc].description); 
+		   dispMsg(room[playerLoc].description); 
 		}   
 	  function dirSouth(){	   
 			  switch(playerLoc){
@@ -336,12 +333,16 @@
 					  case 13:   
 			        playerLoc = 12;
 			        btnDisabler();
+					  break;
+					  case 14:   
+			        playerLoc = 2;
+			        btnDisabler();
 					  break;     
 					  default:  
                btnDisabler();
                locError();  
 		    }
-		  dispMsg(location[playerLoc].description);  	
+		  dispMsg(room[playerLoc].description);  	
 		} 
 		function dirEast(){	   
 			  switch(playerLoc) { 
@@ -382,7 +383,7 @@
               btnDisabler();
 						  locError(); 	
 				}	
-			 dispMsg(location[playerLoc].description);	
+			 dispMsg(room[playerLoc].description);	
 		}	  	
 		function dirWest(){
 			  switch(playerLoc){
@@ -420,9 +421,9 @@
               btnDisabler();
 					    locError(); 
 			  }
-			dispMsg(location[playerLoc].description);		
+			dispMsg(room[playerLoc].description);		
 		}	                                           
-	</script>
+	</script></head>
 	<body onload = "location_Onload();" style = "text-align: center">
 		<h1> The Adventures of Captain Chin: Treasure on Ghost Island v0.8 </h1>
 		<textarea rows="20"  cols="60" id="taDisplay" readonly></textarea>
@@ -470,7 +471,7 @@
 		<textarea rows="1" cols= "5" id="taScore" readonly></textarea>
 		</p>
 		<p>
-		<img src = "map.jpg" alt = "Map">
+		<img src = "map.jpg" alt = "Map" id = "gameMap">
 		</p>
 		<p> Having Issues? 
 		<a href="mailto:david.emory@marist.edu"> Click Here </a> 
