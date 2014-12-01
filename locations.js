@@ -20,7 +20,7 @@ location_0.hasItem = false ;
 var location_1 = new Location();
 location_1.id = 1;
 location_1.name = "Beach";
-location_1.description = "You are on the beach. To the north there is a forest, to the south is a bridge leading to a mansion, to the east there is a mountian, and to the west is your ship."; 
+location_1.description = "You are on the beach. To the north there is a forest, to the south is a bridge leading to a mansion, to the east there is a mountian, and to the west is your ship." 
 location_1.hasItem = false; 
 
 var location_2 = new Location();
@@ -134,19 +134,3 @@ var itemMap = new Item();
 itemMap.id = 2; 
 itemMap.name = "Map";
 itemMap.takeItem = false;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 

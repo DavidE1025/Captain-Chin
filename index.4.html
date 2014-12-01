@@ -10,7 +10,7 @@
 	<script type= "text/javascript" src= "locations.js"></script> 
 	<script type= "text/javascript">
 	//Items Array 
-    var item = [] 
+    var item = new Array(); 
         item[2] = Map; 
         item[6] = Rum;
         item[7] = Lantern; 
@@ -18,7 +18,7 @@
         item[9] = Ancient Sword;
         
   //Inventory Array 
-    var inventory = [] 
+    var inventory = new Array(); 
     
 	// Player location and Point scoring variables 
 	  var playerLoc = 0; 
@@ -226,8 +226,18 @@
       function takeItem() { 
         inventory.push(items[playerLoc].name);
         dispMsg("You took the" + items[playerLoc].name);
-        items[]
-      }  
+        item[playerLoc].takeItem = true;
+        hiddenMap(); 
+      }
+    
+    //Map Visibility 
+        function hiddenMap(){
+          if (itemMap.takeItem === true){ 
+              document.getElementById("Map").visibility = "visible";
+          } else { 
+              document.getElementById("Map").visibility = "hidden";
+            }  
+        }
         
     //Inventory Function 
         function dispInventory() { 
@@ -242,8 +252,9 @@
             playerLoc = 0; 
             scrCounter();
             btnDisabler();
-            dispMsg("You are currently on your ship. You have landed on a beach in search of treasure said to be on the island. The only possible way to go is to the east on to the beach as there is ocean all around you.");
+            hiddenMap();
        }
+		   dispMsg(location[playerLoc].description);
     }
     //enter key function 
     function txtEnter(e){
@@ -432,7 +443,7 @@
 		<input type = "button"
 						id = "btnInvent" 
 						value = "Inventory" 
-						onclick = "dispMsg(inventList);"/> 
+						onclick = "dispInventory();"/> 
           <br/>
           <br/>
 		<input type = "button"
