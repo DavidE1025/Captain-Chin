@@ -224,12 +224,16 @@
     
     }
     //Take Function
-      function takeItem() { 
+      function takeItem() {
+        if (room[playerLoc].hasItem === true && item[playerLoc].takeItem === false){ 
         inventory.push(item[playerLoc].name);
-        dispMsg("You took the" + item[playerLoc].name);
+        dispMsg("You took the " + item[playerLoc].name);
         item[playerLoc].takeItem = true;
         hiddenMap(); 
-      }
+      } else { 
+        dispMsg("There are no items in the area to take.");
+        }
+      }  
     
     //Map Visibility 
         function hiddenMap(){
@@ -242,7 +246,7 @@
         
     //Inventory Function 
         function dispInventory() { 
-            var inventoryMsg = "Inventory;" + inventory;
+            var inventoryMsg = "Inventory:" + inventory;
             dispMsg(inventoryMsg);
         }    
         
