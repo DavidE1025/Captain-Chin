@@ -9,16 +9,37 @@
 		<title>David Emory's: The Adventures of Captian Chin v0.6</title>
 	<script type= "text/javascript" src= "locations.js"></script> 
 	<script type= "text/javascript">
-	//Items
-    var lanturn = false; 
-    var sword = false;
-    var flint = false;   
+	//Items Array 
+    var item = [] 
+        item[0] = Map 
+        item[1] = Strange Powder
+        item[2] = Lantern 
+        item[3] = Flint
+        item[4] = Ancient Sword
     
 	// Player location and Point scoring variables 
 	  var playerLoc = 0; 
 	  var score = 0;
-	  var inventList = "Inventory:\n" 
-	  
+	  var inventList = "Inventory:\n"
+	   
+	// Location Arrays 
+    var location = [] 
+        location[0] = Ship; 
+        location[1] = Beach;
+        location[2] = Forest;
+        location[3] = Mountain Base;
+        location[4] = Bridge; 
+        location[5] = Mansion;
+        location[6] = Cellar;  
+        location[7] = Bedroom; 
+        location[8] = Kitchen; 
+        location[9] = Mountain Summit; 
+        location[10] = Cave; 
+        location[11] = Forest_2; 
+        location[12] = Temple Entrance;
+        location[13] = Temple Chamber;
+        location[14] = Treasure Room;
+        
 	//Visited Location 
 	  var visitedLoc_0 = false;
 	  var visitedLoc_1 = false;
@@ -221,11 +242,7 @@
             dispMsg("You are currently on your ship. You have landed on a beach in search of treasure said to be on the island. The only possible way to go is to the east on to the beach as there is ocean all around you.");
        }
     }
-    
-    //Enterkey Function Copied from example project 
-    //Checks for the Enter key which its code # is 13
-    //e.which does not work in IE
-    //also seen on stackoverflow-> http://stackoverflow.com/questions/5931320/how-do-i-use-the-enter-key-as-an-event-handler-javascript
+    //enter key function 
     function txtEnter(e){
           if (e.which === 13){
               document.getElementById("btnGo").onclick(); 
