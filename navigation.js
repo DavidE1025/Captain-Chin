@@ -1,39 +1,3 @@
-var playerLoc = 0;
- 
-var north = 1 
-var south = 2
-var east = 3
-var west = 4
-
-//Navigation Matrix 
-var navigation = [//  N   S   E   W 
-             /*0*/ [ -1, -1,  1, -1], 
-             /*1*/ [  2,  4,  3,  0], 
-             /*2*/ [ -1,  1, -1, -1], 
-             /*3*/ [  9, -1, 10,  1], 
-             /*4*/ [  1,  5, -1, -1], 
-             /*5*/ [  4,  7,  6,  8], 
-             /*6*/ [ -1, -1, -1,  5], 
-             /*7*/ [  5, -1, -1, -1], 
-             /*8*/ [ -1, -1,  5, -1], 
-             /*9*/ [ -1,  3, -1, -1], 
-            /*10*/ [ -1, -1, 11,  3], 
-            /*11*/ [ 12, -1, -1, 10], 
-            /*12*/ [ 13, 11, -1, -1], 
-            /*13*/ [ -1, 12, 14, -1],
-            /*14*/ [ -1,  2, 13, -1]
-                 ];
-                  
-function changeLoc(dir) { 
-  var nextLoc = navigation[playerLoc][dir];  
-      dispMsg(navigation.description);
-  if (nextLoc >= 0) {
-    playerLoc = nextLoc; 
-  } else { 
-    dispMsg("You cannot go that way");
-  }
-}
-    
 //onload function  
 function location_Onload() {
 	dispMsg(Ship.description);
@@ -46,30 +10,172 @@ function location_Onload() {
 
 //North Directionals                
 function dirNorth(){	  
-      changeLoc(north);
+	switch(playerLoc){
+		case 1:
+			playerLoc = 2;
+			scrCounter();
+			btnDisabler();  
+		break; 
+		case 4:
+			playerLoc = 1;
+			btnDisabler(); 
+		break;
+		case 5:  
+			playerLoc = 4;
+			btnDisabler();
+		break;
+		case 7:
+			playerLoc = 5;
+			btnDisabler();
+		break;
+		case 3:   
+			playerLoc = 9;
 			scrCounter();
 			btnDisabler();
+		break;
+		case 11:   
+			playerLoc = 12;
+			scrCounter();
+			btnDisabler();
+		break; 
+		case 12:   
+			playerLoc = 13;
+			scrCounter();
+			btnDisabler();
+		break; 
+		default:
+			btnDisabler();   
+			dispMsg(error.description);
+	}
+dispMsg(room[playerLoc].description); 
 } 
 
 //South Directionals  
 function dirSouth(){	   
-      changeLoc(south);
+	switch(playerLoc){
+		case 1: 
+			playerLoc = 4;
 			scrCounter();
-			btnDisabler();  	
+			btnDisabler();
+		break;
+		case 2: 
+			playerLoc = 1;
+			btnDisabler();
+		break;
+		case 4: 
+			playerLoc = 5;
+			scrCounter();
+			btnDisabler(); 
+		break;  
+		case 5:  
+			playerLoc = 7;
+			scrCounter();
+			btnDisabler();
+		break;
+		case 9:  
+			playerLoc = 3;
+			btnDisabler();
+		break;
+		case 12:   
+			playerLoc = 11;
+			btnDisabler();
+		break; 
+		case 13:   
+			playerLoc = 12;
+			btnDisabler();
+		break;
+		case 14:   
+			playerLoc = 2;
+			btnDisabler();
+		break;     
+		default:  
+			btnDisabler();
+			dispMsg(error.description);  
+	}
+dispMsg(room[playerLoc].description);  	
 } 
 
 //East Directionals
 function dirEast(){	   
-      changeLoc(east);
+	switch(playerLoc) { 
+		case 0: 
+			playerLoc = 1;
 			scrCounter();
-			btnDisabler();  	
+			btnDisabler(); 
+		break; 
+		case 1:
+			playerLoc = 3;
+			scrCounter(); 
+			btnDisabler();
+		break;
+		case 3:
+			playerLoc = 10;
+			scrCounter(); 
+			btnDisabler();
+		break;
+		case 10:
+			playerLoc = 11;
+			scrCounter();
+			btnDisabler();
+		break;
+		case 14:
+			playerLoc = 13;
+			btnDisabler();
+		break;
+		case 5:
+			playerLoc = 6;
+			scrCounter();
+			btnDisabler();
+		break;
+		case 8:
+			playerLoc = 5;
+			btnDisabler();
+		break;
+		default:  
+			btnDisabler();
+			dispMsg(error.description); 	
+	}	
+dispMsg(room[playerLoc].description);	
 }	
 
 //West Directionals  	
 function dirWest(){
-      changeLoc(west);
+	switch(playerLoc){
+		case 1:
+			playerLoc = 0;
+			btnDisabler();
+		break;
+		case 3:   
+			playerLoc = 1;
+			btnDisabler();
+		break;
+		case 10:   
+			playerLoc = 3;
+			btnDisabler();
+		break;
+		case 11:   
+			playerLoc = 10;
+			btnDisabler();
+		break;
+		case 13:   
+			playerLoc = 14;
 			scrCounter();
-			btnDisabler();  	
+			btnDisabler();
+		break;
+		case 6:
+			playerLoc = 5;
+			btnDisabler();
+		break; 
+		case 5:
+			playerLoc = 8;
+			scrCounter();
+			btnDisabler();
+		break; 
+		default: 
+			btnDisabler();
+			dispMsg(error.description); 
+	}
+dispMsg(room[playerLoc].description);		
 }	
 
 //Command Box Function    

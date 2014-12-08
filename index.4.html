@@ -22,12 +22,20 @@
     var inventory = new Array(); 
     
 	// Player location and Point scoring variables 
+	  var playerLoc = 0; 
 	  var score = 0;
+<<<<<<< HEAD
 <<<<<<< HEAD
 	   
 	// Location Arrays 
     var room = new Array()
                   room[0] = ship,
+=======
+	   
+	// Location Arrays 
+    var room = new Array()
+                  room[0] = Ship,
+>>>>>>> parent of ef7382e... Unknown Errors, Logic?
                   room[1] = Beach,
                   room[2] = UpperForest,
                   room[3] = MountainBase,
@@ -43,9 +51,12 @@
                   room[13] = TempleChamber,
                   room[14] = TreasureRoom; 
       
+<<<<<<< HEAD
 =======
 
 >>>>>>> origin/master
+=======
+>>>>>>> parent of ef7382e... Unknown Errors, Logic?
 	//Visited Location for scoring use 
 	  var visitedLoc_0 = false;
 	  var visitedLoc_1 = false;
@@ -202,7 +213,7 @@
 >>>>>>> origin/master
     //Take Function
       function takeItem() {
-        if (navigation[playerLoc].hasItem === true && item[playerLoc].takeItem === false){ 
+        if (room[playerLoc].hasItem === true && item[playerLoc].takeItem === false){ 
         inventory.push(item[playerLoc].name);
         dispMsg("You took the " + item[playerLoc].name);
         item[playerLoc].takeItem = true;
@@ -263,6 +274,10 @@
            id = "txtCommand"
            placeholder = "Enter Your Command"
            onkeypress = "txtEnter(event)"/>
+    <input type = "button"
+           id = "btnHelp" 
+           value = "Help" 
+           onclick = "locHelp();"/> 
 		<input type = "button"
 						id = "btnInvent" 
 						value = "Inventory" 
