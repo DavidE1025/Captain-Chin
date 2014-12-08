@@ -3,11 +3,10 @@
 
 //Location Blueprint 
 function Location(id, name, description, hasItem) {
-  //Attributes 
-  this.id = id;
-  this.name = name;
-  this.description  = description;
-  this.hasItem = hasItem; 
+this.id = id;
+this.name = name;
+this.description  = description;
+this.hasItem = hasItem; 
 } 
 
 //Location Prototypes 
@@ -118,30 +117,35 @@ this.takeItem = takeItem;
 
 //Item Prototypes 
 
+//Lantern Prototype
 var itemLantern = new Item();
 itemLantern.id = 7; 
 itemLantern.name = "Lantern";
 itemLantern.description = "There is a lantern on the bed post."
 itemLantern.takeItem = false;
 
+//Rum Prototype
 var itemRum = new Item();
 itemRum.id = 14; 
 itemRum.name = "Rum";
 itemRum.description = "The world's best rum."
 itemRum.takeItem = false;
 
+//Ancient Sword Prototype
 var itemAncientSword = new Item();
 itemAncientSword.id = 9; 
 itemAncientSword.name = "Ancient Sword"
 itemAncientSword.description = "There is a sword in an alter."
 itemAncientSword.takeItem = false;
 
+//Flint Prototype
 var itemFlint = new Item();
 itemFlint.id = 8; 
 itemFlint.name = "Flint";
 itemFlint.description = "There is flint on the countertop." 
 itemFlint.takeItem = false;
 
+//Map Prototype
 var itemMap = new Item();
 itemMap.id = 2; 
 itemMap.name = "Map";
