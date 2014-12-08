@@ -22,27 +22,8 @@
     var inventory = new Array(); 
     
 	// Player location and Point scoring variables 
-	  var playerLoc = 0; 
 	  var score = 0;
-	   
-	// Location Arrays 
-    var room = new Array()
-                  room[0] = Ship,
-                  room[1] = Beach,
-                  room[2] = UpperForest,
-                  room[3] = MountainBase,
-                  room[4] = Bridge, 
-                  room[5] = Mansion, 
-                  room[6] = Cellar,
-                  room[7] = Bedroom,
-                  room[8] = Kitchen,
-                  room[9] = MountainSummit,
-                  room[10] = Cave,
-                  room[11] = Forest,
-                  room[12] = TempleEntrance,
-                  room[13] = TempleChamber,
-                  room[14] = TreasureRoom; 
-      
+
 	//Visited Location for scoring use 
 	  var visitedLoc_0 = false;
 	  var visitedLoc_1 = false;
@@ -195,7 +176,7 @@
 
     //Take Function
       function takeItem() {
-        if (room[playerLoc].hasItem === true && item[playerLoc].takeItem === false){ 
+        if (navigation[playerLoc].hasItem === true && item[playerLoc].takeItem === false){ 
         inventory.push(item[playerLoc].name);
         dispMsg("You took the " + item[playerLoc].name);
         item[playerLoc].takeItem = true;
@@ -242,10 +223,6 @@
            id = "txtCommand"
            placeholder = "Enter Your Command"
            onkeypress = "txtEnter(event)"/>
-    <input type = "button"
-           id = "btnHelp" 
-           value = "Help" 
-           onclick = "locHelp();"/> 
 		<input type = "button"
 						id = "btnInvent" 
 						value = "Inventory" 
