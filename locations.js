@@ -69,7 +69,7 @@ Kitchen.hasItem = true;
 var MountainSummit = new Location();
 MountainSummit.id = 9;
 MountainSummit.name = "Mountain Summit";
-MountainSummit.description = "You walk to the top of the mountain you can see the entire island and there is a sword in an alter at the top of the mountain. You can only go south back down the mountain."; 
+MountainSummit.description = "You walk to the top of the mountain you can see the entire island. You can only go south back down the mountain."; 
 MountainSummit.hasItem = true; 
 
 var Cave = new Location();
@@ -87,7 +87,7 @@ Forest.hasItem = false;
 var TempleEntrance = new Location();
 TempleEntrance.id = 12;
 TempleEntrance.name = "Temple Entrance";
-TempleEntrance.description = " You approach the entrance to the temple and hear low growls from inside the temple. To the south is the forest where you just got out of the cave."; 
+TempleEntrance.description = "You approach the entrance to the temple and hear low growls from inside the temple. To the south is the forest where you just got out of the cave."; 
 TempleEntrance.hasItem = false ;
 
 var TempleChamber = new Location();
@@ -99,13 +99,20 @@ TempleChamber.hasItem = false;
 var TreasureRoom = new Location();
 TreasureRoom.id = 14;
 TreasureRoom.name = "Treasure Room";
-TreasureRoom.description = "You walk into the treausre room and see a room full of rum. There is an exit to the south of the room."; 
+TreasureRoom.description = "You walk into the treausre room. There is an exit to the south of the room."; 
 TreasureRoom.hasItem = true; 
 
+var error = new Location();
+error.id = 15;
+error.name = "Error Room ";
+error.description = "You cannot go that way."; 
+TreasureRoom.hasItem = false; 
+
 //Item Blueprint
-function Item( id, name, takeItem){
+function Item( id, name, description, takeItem){
 this.id = id; 
 this.name = name;
+this.descrition;
 this.takeItem = takeItem; 
 }
 
@@ -114,25 +121,30 @@ this.takeItem = takeItem;
 var itemLantern = new Item();
 itemLantern.id = 7; 
 itemLantern.name = "Lantern";
+itemLantern.description = "There is a lantern on the bed post."
 itemLantern.takeItem = false;
 
 var itemRum = new Item();
 itemRum.id = 14; 
 itemRum.name = "Rum";
+itemRum.description = "The world's best rum."
 itemRum.takeItem = false;
 
 var itemAncientSword = new Item();
 itemAncientSword.id = 9; 
-itemAncientSword.name = "Ancient Sword";
+itemAncientSword.name = "Ancient Sword"
+itemAncientSword.description = "There is a sword in an alter."
 itemAncientSword.takeItem = false;
 
 var itemFlint = new Item();
 itemFlint.id = 8; 
 itemFlint.name = "Flint";
+itemFlint.description = "There is flint on the countertop." 
 itemFlint.takeItem = false;
 
 var itemMap = new Item();
 itemMap.id = 2; 
 itemMap.name = "Map";
+itemMap.description = "There is a map on the ground."
 itemMap.takeItem = false;
 

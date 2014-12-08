@@ -170,7 +170,7 @@
           }
     }       
     function disSouth(){ 
-        if (playerLoc === 0 ||playerLoc === 3 ||playerLoc === 6 ||playerLoc === 7 ||playerLoc === 8 ||playerLoc === 10 ||playerLoc === 11 ||playerLoc === 14){
+        if (playerLoc === 0 ||playerLoc === 3 ||playerLoc === 6 ||playerLoc === 7 ||playerLoc === 8 ||playerLoc === 10 ||playerLoc === 11){
             document.getElementById('btnSouth').disabled = true; 
         } else { 
             document.getElementById('btnSouth').disabled = false; 
@@ -301,7 +301,7 @@
 				 break; 
 				 default:
             btnDisabler();   
-						locError(); 
+						dispMsg(error.description);
 		    }
 		   dispMsg(room[playerLoc].description); 
 		}   
@@ -344,7 +344,7 @@
 					  break;     
 					  default:  
                btnDisabler();
-               locError();  
+               dispMsg(error.description);  
 		    }
 		  dispMsg(room[playerLoc].description);  	
 		} 
@@ -385,7 +385,7 @@
 					  break;
 					  default:  
               btnDisabler();
-						  locError(); 	
+						  dispMsg(error.description); 	
 				}	
 			 dispMsg(room[playerLoc].description);	
 		}	  	
@@ -423,7 +423,7 @@
 					  break; 
 				    default: 
               btnDisabler();
-					    locError(); 
+					    dispMsg(error.description); 
 			  }
 			dispMsg(room[playerLoc].description);		
 		}	                                           
