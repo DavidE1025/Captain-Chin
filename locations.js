@@ -2,140 +2,104 @@
 //Locations 
 
 //Location Blueprint 
-<<<<<<< HEAD
-function Location(id, name, description, hasItem, hasVisited) {
-this.id = id;
-this.name = name;
-this.description  = description;
-this.hasItem = hasItem;
-this.hasVisited = hasVisited; 
-=======
 function Location(id, name, description, hasItem) {
 this.id = id;
 this.name = name;
 this.description  = description;
 this.hasItem = hasItem; 
->>>>>>> origin/master
 } 
 
 //Location Prototypes 
  
-var ship = new Location();
-ship.id = 0;
-ship.name = "Ship";
-ship.description = "You are on your pirate ship. There is a beach to the east and ocean in every other direction."; 
-ship.hasItem = false ;
-ship.hasVisited = false;
+var Ship = new Location();
+Ship.id = 0;
+Ship.name = "Ship";
+Ship.description = "You are on your pirate ship. There is a beach to the east and ocean in every other direction."; 
+Ship.hasItem = false ;
 
 var Beach = new Location();
 Beach.id = 1;
 Beach.name = "Beach";
 Beach.description = "You are on the beach. To the north there is a forest, to the south is a bridge leading to a mansion, to the east there is a mountian, and to the west is your ship." 
-Beach.hasItem = false;
-Beach.hasVisited = false; 
+Beach.hasItem = false; 
 
 var UpperForest = new Location();
 UpperForest.id = 2;
 UpperForest.name = "Northern Forest";
 UpperForest.description = "You are in a forest you can hear low growls in the distance. You cannot move any further into the forest in fear of the sounds in the forest. However you do see a map on the ground. To south is the beach."; 
-UpperForest.hasItem = true;
-UpperForest.hasVisited = false; 
+UpperForest.hasItem = true; 
 
 var MountainBase = new Location();
 MountainBase.id = 3;
 MountainBase.name = "Mountain Base";
 MountainBase.description = "You are at the base of a mountain there is a path to the north up the mountain. To the east there is cave and to the west is the beach."; 
 MountainBase.hasItem = false ;
-MountainBase.hasVisited = false;
 
 var Bridge = new Location();
 Bridge.id = 4;
 Bridge.name = "Bridge";
 Bridge.description = "You are on a bridge there is a river running underneath the bridge. To the south is a run down mansion and to the north is the beach."; 
 Bridge.hasItem = false ;
-Bridge.hasVisited = false;
 
 var Mansion = new Location();
 Mansion.id = 5;
 Mansion.name = "Mansion";
 Mansion.description = "You are in the run down mansion. To the east there are stairs leading down to a cellar, to the south there is a bedroom, and to the west is a kitchen."; 
-Mansion.hasItem = false;
-Mansion.hasVisited = false; 
+Mansion.hasItem = false; 
 
 var Cellar = new Location();
 Cellar.id = 6;
 Cellar.name = "Cellar";
 Cellar.description = "You are in the cellar it is dark and hard to see anything in the darkness. You can only go west back to the center of the mansion."; 
-Cellar.hasItem = false;
-Cellar.hasVisited = false; 
+Cellar.hasItem = false; 
 
 var Bedroom = new Location();
 Bedroom.id = 7;
 Bedroom.name = "Bedroom";
 Bedroom.description = "You are in the bedroom there are the burnt remains of a human carcass and a lantern on the bedpost. You can only move north back to the center of the mansion."; 
-Bedroom.hasItem = true;
-Bedroom.hasVisited = false; 
+Bedroom.hasItem = true; 
 
 var Kitchen = new Location();
 Kitchen.id = 8;
 Kitchen.name = "Kitchen";
 Kitchen.description = "You walk into the kitchen there is broken glass all over the floor and there is flint on the counter. The center of the mansion is to the east."; 
-Kitchen.hasItem = true;
-Kitchen.hasVisited = false; 
+Kitchen.hasItem = true; 
 
 var MountainSummit = new Location();
 MountainSummit.id = 9;
 MountainSummit.name = "Mountain Summit";
 MountainSummit.description = "You walk to the top of the mountain you can see the entire island. You can only go south back down the mountain."; 
-<<<<<<< HEAD
-MountainSummit.hasItem = true;
-MountainSummit.hasVisited = false; 
-=======
 MountainSummit.hasItem = true; 
->>>>>>> origin/master
 
 var Cave = new Location();
 Cave.id = 10;
 Cave.name = "Cave";
 Cave.description = "You walk into the cave but it is too dark to proceed any further. The only way out of the cave is to the west."; 
-Cave.hasItem = false;
-Cave.hasVisited = false; 
+Cave.hasItem = false; 
 
 var Forest = new Location();
 Forest.id = 11;
 Forest.name = "Forest";
 Forest.description = "You emerge out of the cave and are confrinted with a dense forest all around you. To the north you can see a temple and back to the west is the cave."; 
-Forest.hasItem = false;
-Forest.hasVisited = false; 
+Forest.hasItem = false; 
 
 var TempleEntrance = new Location();
 TempleEntrance.id = 12;
 TempleEntrance.name = "Temple Entrance";
 TempleEntrance.description = "You approach the entrance to the temple and hear low growls from inside the temple. To the south is the forest where you just got out of the cave."; 
-<<<<<<< HEAD
-TempleEntrance.hasItem = false;
-TempleEntrance.hasVisited = false;
-=======
 TempleEntrance.hasItem = false ;
->>>>>>> origin/master
 
 var TempleChamber = new Location();
 TempleChamber.id = 13;
 TempleChamber.name = "Temple Chamber";
 TempleChamber.description = "You brave the noises and enter the temple and are immediatly confronted by a chimera."; 
-TempleChamber.hasItem = false;
-TempleChamber.hasVisited = false; 
+TempleChamber.hasItem = false; 
 
 var TreasureRoom = new Location();
 TreasureRoom.id = 14;
 TreasureRoom.name = "Treasure Room";
 TreasureRoom.description = "You walk into the treausre room. There is an exit to the south of the room."; 
-<<<<<<< HEAD
-TreasureRoom.hasItem = true;
-TreasureRoom.hasVisited = false;  
-=======
 TreasureRoom.hasItem = true; 
->>>>>>> origin/master
 
 var error = new Location();
 error.id = 15;
@@ -187,4 +151,3 @@ itemMap.id = 2;
 itemMap.name = "Map";
 itemMap.description = "There is a map on the ground."
 itemMap.takeItem = false;
-

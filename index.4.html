@@ -24,18 +24,10 @@
 	// Player location and Point scoring variables 
 	  var playerLoc = 0; 
 	  var score = 0;
-<<<<<<< HEAD
-<<<<<<< HEAD
-	   
-	// Location Arrays 
-    var room = new Array()
-                  room[0] = ship,
-=======
 	   
 	// Location Arrays 
     var room = new Array()
                   room[0] = Ship,
->>>>>>> parent of ef7382e... Unknown Errors, Logic?
                   room[1] = Beach,
                   room[2] = UpperForest,
                   room[3] = MountainBase,
@@ -51,12 +43,6 @@
                   room[13] = TempleChamber,
                   room[14] = TreasureRoom; 
       
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/master
-=======
->>>>>>> parent of ef7382e... Unknown Errors, Logic?
 	//Visited Location for scoring use 
 	  var visitedLoc_0 = false;
 	  var visitedLoc_1 = false;
@@ -205,12 +191,8 @@
             document.getElementById('btnWest').disabled = false;
           }
     }
-<<<<<<< HEAD
-    
-=======
             
 
->>>>>>> origin/master
     //Take Function
       function takeItem() {
         if (room[playerLoc].hasItem === true && item[playerLoc].takeItem === false){ 
@@ -238,29 +220,15 @@
             dispMsg(inventoryMsg);
         }    
         
-<<<<<<< HEAD
-	  //onload function  
-	  function location_Onload() {
-            dispMsg(ship.description);
-            scrCounter();
-            btnDisabler();
-            hiddenMap();
-    }
-=======
 
->>>>>>> origin/master
     //enter key function 
     function txtEnter(e){
           if (e.which === 13){
               document.getElementById("btnGo").onclick(); 
           }
     }
-<<<<<<< HEAD
- 	</script></head>
-=======
             
 	</script></head>
->>>>>>> origin/master
 	<body onload = "location_Onload();" style = "text-align: center">
 		<h1> The Adventures of Captain Chin: Treasure on Ghost Island v0.8 </h1>
 		<textarea rows="20"  cols="60" id="taDisplay" readonly></textarea>
