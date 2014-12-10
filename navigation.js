@@ -1,4 +1,4 @@
-
+// Global Variables for Navi matrix
 var North = 0
 var South = 1
 var East = 2
@@ -12,9 +12,31 @@ function location_Onload() {
 	btnDisabler();
 	hiddenMap();
 	dispMsg(room[playerLoc].description);
-} 
-
+}
+ 
+// Matrix used for navigation of the game
 var navi = [//  N   S   E   W
+         /*0*/[-1, -1,  1, -1],
+         /*1*/[ 2,  4,  3,  0],
+         /*2*/[-1,  1, -1, -1],
+         /*3*/[ 9, -1,  1, 10],
+         /*4*/[ 1,  5, -1, -1],
+         /*5*/[ 4,  7,  6,  8],
+         /*6*/[-1, -1,  5, -1],
+         /*7*/[ 5, -1, -1, -1],
+         /*8*/[-1, -1, -1,  5],
+         /*9*/[-1,  3, -1, -1],
+        /*10*/[-1, -1,  3, 11],
+        /*11*/[12, -1, 10, -1],
+        /*12*/[13 ,11, -1, -1],
+        /*13*/[-1, 12, 14, -1],
+        /*14*/[-1,  2, -1, -1],
+        ];
+
+//An array of button id's used in the button disabler 
+var btnID = ['btnNorth', 'btnSouth', 'btnWest', 'btnEast'];
+
+var btnDisable =  [//  N   S   E   W
                /*0*/[-1, -1,  1, -1],
                /*1*/[ 2,  4,  3,  0],
                /*2*/[-1,  1, -1, -1],
@@ -25,13 +47,18 @@ var navi = [//  N   S   E   W
                /*7*/[ 5, -1, -1, -1],
                /*8*/[-1, -1, -1,  5],
                /*9*/[-1,  3, -1, -1],
-							/*10*/[-1, -1,  3, 11],
-							/*11*/[12, -1, 10, -1],
-							/*12*/[13 ,11, -1, -1],
-							/*13*/[-1, 12, 14, -1],
-							/*14*/[-1,  2, -1, -1],
-							];
-
+              /*10*/[-1, -1,  3, 11],
+              /*11*/[12, -1, 10, -1],
+              /*12*/[13 ,11, -1, -1],
+              /*13*/[-1, 12, 14, -1],
+              /*14*/[-1,  2, -1, -1],
+              ];
+              
+function btnDisabler() {
+    var disable = btnDisable[playerLoc][btnID];
+    if (disable > 0){ 
+        document.getElementById(btnID[]).disabled = true
+    }    
 //Directional Functions
 function newLocation(dir){
       var nextLocation = navi[playerLoc][dir];
