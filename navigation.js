@@ -1,181 +1,68 @@
+
+var North = 0
+var South = 1
+var East = 2
+var West = 3 
+
 //onload function  
 function location_Onload() {
-	dispMsg(Ship.description);
+  loadLocal();
+  loadItem();
 	scrCounter();
 	btnDisabler();
 	hiddenMap();
-}
+	dispMsg(room[playerLoc].description);
+} 
+
+var navi = [//  N   S   E   W
+               /*0*/[-1, -1,  1, -1],
+               /*1*/[ 2,  4,  3,  0],
+               /*2*/[-1,  1, -1, -1],
+               /*3*/[ 9, -1,  1, 10],
+               /*4*/[ 1,  5, -1, -1],
+               /*5*/[ 4,  7,  6,  8],
+               /*6*/[-1, -1,  5, -1],
+               /*7*/[ 5, -1, -1, -1],
+               /*8*/[-1, -1, -1,  5],
+               /*9*/[-1,  3, -1, -1],
+							/*10*/[-1, -1,  3, 11],
+							/*11*/[12, -1, 10, -1],
+							/*12*/[13 ,11, -1, -1],
+							/*13*/[-1, 12, 14, -1],
+							/*14*/[-1,  2, -1, -1],
+							];
 
 //Directional Functions
-
+function newLocation(dir){
+      var nextLocation = navi[playerLoc][dir];
+      if (nextLocation >= 0){
+          playerLoc = nextLocation	
+          dispMsg(room[playerLoc].description);
+          scrCounter();
+          btnDisabler(); 
+        } else { 
+      dispMsg("In Love With the cocos");
+        }
+      }  
+      
 //North Directionals                
-function dirNorth(){	  
-	switch(playerLoc){
-		case 1:
-			playerLoc = 2;
-			scrCounter();
-			btnDisabler();  
-		break; 
-		case 4:
-			playerLoc = 1;
-			btnDisabler(); 
-		break;
-		case 5:  
-			playerLoc = 4;
-			btnDisabler();
-		break;
-		case 7:
-			playerLoc = 5;
-			btnDisabler();
-		break;
-		case 3:   
-			playerLoc = 9;
-			scrCounter();
-			btnDisabler();
-		break;
-		case 11:   
-			playerLoc = 12;
-			scrCounter();
-			btnDisabler();
-		break; 
-		case 12:   
-			playerLoc = 13;
-			scrCounter();
-			btnDisabler();
-		break; 
-		default:
-			btnDisabler();   
-			dispMsg(error.description);
-	}
-dispMsg(room[playerLoc].description); 
+function dirNorth(){
+    newLocation(North);
 } 
 
 //South Directionals  
 function dirSouth(){	   
-	switch(playerLoc){
-		case 1: 
-			playerLoc = 4;
-			scrCounter();
-			btnDisabler();
-		break;
-		case 2: 
-			playerLoc = 1;
-			btnDisabler();
-		break;
-		case 4: 
-			playerLoc = 5;
-			scrCounter();
-			btnDisabler(); 
-		break;  
-		case 5:  
-			playerLoc = 7;
-			scrCounter();
-			btnDisabler();
-		break;
-		case 9:  
-			playerLoc = 3;
-			btnDisabler();
-		break;
-		case 12:   
-			playerLoc = 11;
-			btnDisabler();
-		break; 
-		case 13:   
-			playerLoc = 12;
-			btnDisabler();
-		break;
-		case 14:   
-			playerLoc = 2;
-			btnDisabler();
-		break;     
-		default:  
-			btnDisabler();
-			dispMsg(error.description);  
-	}
-dispMsg(room[playerLoc].description);  	
+    newLocation(South);
 } 
 
 //East Directionals
 function dirEast(){	   
-	switch(playerLoc) { 
-		case 0: 
-			playerLoc = 1;
-			scrCounter();
-			btnDisabler(); 
-		break; 
-		case 1:
-			playerLoc = 3;
-			scrCounter(); 
-			btnDisabler();
-		break;
-		case 3:
-			playerLoc = 10;
-			scrCounter(); 
-			btnDisabler();
-		break;
-		case 10:
-			playerLoc = 11;
-			scrCounter();
-			btnDisabler();
-		break;
-		case 14:
-			playerLoc = 13;
-			btnDisabler();
-		break;
-		case 5:
-			playerLoc = 6;
-			scrCounter();
-			btnDisabler();
-		break;
-		case 8:
-			playerLoc = 5;
-			btnDisabler();
-		break;
-		default:  
-			btnDisabler();
-			dispMsg(error.description); 	
-	}	
-dispMsg(room[playerLoc].description);	
+    newLocation(East);
 }	
 
 //West Directionals  	
 function dirWest(){
-	switch(playerLoc){
-		case 1:
-			playerLoc = 0;
-			btnDisabler();
-		break;
-		case 3:   
-			playerLoc = 1;
-			btnDisabler();
-		break;
-		case 10:   
-			playerLoc = 3;
-			btnDisabler();
-		break;
-		case 11:   
-			playerLoc = 10;
-			btnDisabler();
-		break;
-		case 13:   
-			playerLoc = 14;
-			scrCounter();
-			btnDisabler();
-		break;
-		case 6:
-			playerLoc = 5;
-			btnDisabler();
-		break; 
-		case 5:
-			playerLoc = 8;
-			scrCounter();
-			btnDisabler();
-		break; 
-		default: 
-			btnDisabler();
-			dispMsg(error.description); 
-	}
-dispMsg(room[playerLoc].description);		
+    newLocation(West);
 }	
 
 //Command Box Function    
@@ -206,6 +93,6 @@ function btnGo_Click(){
       dispInventory();
 		break;
 		default: 
-      dispMsg("Command Not Recognized. Click the help button for a list of commands or type H into the command box."); 
+      dispMsg("Command Not Recognized. Click the type H into the command box for help."); 
 	}
 }                                           
