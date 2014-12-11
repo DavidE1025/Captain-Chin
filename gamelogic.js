@@ -1,6 +1,5 @@
 // Global Player location and Point scoring variables 
-var playerLoc = 0;
-var nextLoc = 0; 
+var playerLoc = 0; 
 var score = 0;
 
 //Global Arrays 
@@ -42,16 +41,28 @@ function scrCounter(){
 		dispScore(); 
   }            
 }
-function puzzleElement(){ 
-  if (room[13].needItem === false && item[9].takeItem === true){ 
-    room[13].needItem = true
-    dispMsg(room[playerLoc].description);
-  } else {
-      if(room[13].needItem === true && item[9].takeItem === false){ 
-      playerDeath("The chimera buries you in filth and you suffocate.");
+
+function puzzleElement(word){
+      switch(word){
+          case 10: 
+            if (item[7].takeItem === false || item[8].takeItem === false){
+              playerLoc = 3; 
+              dispMsg("You walk into the cave but it is too dark to see so you have to walk back otuside.");
+            }  
+          break;
+          case 13:
+            if (item[9].takeItem === false){
+                playerDeath("Zach smothered you in his pile of filth and you suffocated. ");
+            }
+          break;
+          case 1: 
+            if (item[14].takeItem === true){ 
+                gameFinale();
+            }
+          break;      
       }
-    }
-}          
+}                      
+        
 
 //Take Function
 function takeItem() {
@@ -86,7 +97,7 @@ function dispInventory() {
 function playerJump(){ 
     switch (playerLoc){
       case 0: 
-        playerDeath("You jump off the ship ");
+        playerDeath("You jump off the ship "); 
       break;
       case 4: 
         playerDeath("You jump off the bridge ");
@@ -151,3 +162,13 @@ function txtEnter(e){
   document.getElementById("btnGo").onclick(); 
   }
 }
+
+function gameFinale(){
+        dispMsg("Having successfully obtained the worlds best rum you sail off onto the seas. You and your crew drunkingly party until you reach the next island on your adventure. Captain Chin a world renowned pirate who looks some what like a modern day country singer and loves to drink rum. You win!!!");
+      document.getElementById('btnNorth').disabled = true;
+      document.getElementById('btnSouth').disabled = true;
+      document.getElementById('btnWest').disabled = true;
+      document.getElementById('btnEast').disabled = true;
+      playerLoc = 15;
+}       
+         

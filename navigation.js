@@ -28,11 +28,11 @@ var navi = [//  N   S   E   W
 function newLocation(dir){
       var nextLocation = navi[playerLoc][dir];
       if (nextLocation >= 0){
-          playerLoc = nextLocation	
+          playerLoc = nextLocation
+          puzzleElement(playerLoc);	
           dispMsg(room[playerLoc].description);
           scrCounter();
-          //btnDisabler();
-          puzzleElement(); 
+          //btnDisabler(); 
         } else { 
       dispMsg("You cannot go that way");	
       dispMsg(room[playerLoc].description);

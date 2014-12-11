@@ -123,7 +123,7 @@ function loadLocal() {
 		var Death = new Location();
 		Death.id = 15;
 		Death.name = "Death";
-		Death.description = "Captain Chin is dead. Refresh to try again."; 
+		Death.description = "Game Over"; 
 		TreasureRoom.hasItem = false;
 		TreasureRoom.hasVisited = true;
 										 
