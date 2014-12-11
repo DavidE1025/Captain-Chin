@@ -21,7 +21,7 @@ var navi = [//  N   S   E   W
         /*12*/[13 ,11, -1, -1],
         /*13*/[-1, 12, -1, 14],
         /*14*/[-1,  2, -1, -1],
-        /*15*/[-1,  -1, -1, -1],
+        /*15*/[-1, -1, -1, -1],
         ];
         
 //Directional Functions
@@ -32,7 +32,7 @@ function newLocation(dir){
           puzzleElement(playerLoc);	
           dispMsg(room[playerLoc].description);
           scrCounter();
-          //btnDisabler(); 
+          btnDisabler(); 
         } else { 
       dispMsg("You cannot go that way");	
       dispMsg(room[playerLoc].description);
@@ -40,26 +40,6 @@ function newLocation(dir){
       } 
 
 
-//Button Disabler Matrix
-var btnDisable =  [//  N   S   E   W
-               /*0*/[ 1,  1,  0,  1],
-               /*1*/[ 0,  0,  0,  0],
-               /*2*/[ 1,  0,  1,  1],
-               /*3*/[ 0,  1,  0,  0],
-               /*4*/[ 0,  0,  1,  1],
-               /*5*/[ 0,  0,  0,  0],
-               /*6*/[ 1,  1,  0,  1],
-               /*7*/[ 0,  1,  1,  1],
-               /*8*/[ 1,  1,  1,  0],
-               /*9*/[ 1,  0,  1,  1],
-              /*10*/[ 1,  1,  0,  0],
-              /*11*/[ 0,  1,  0,  1],
-              /*12*/[ 0 , 0,  1,  1],
-              /*13*/[ 1,  0,  0,  1],
-              /*14*/[ 1,  0,  1,  1],
-              /*15*/[ 1,  1,  1,  1],
-              ];
-      
 //North Directionals                
 function dirNorth(){
     newLocation(North);

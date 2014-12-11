@@ -2,13 +2,12 @@
 //Locations 
 
 //Location Blueprint 
-function Location(id, name, description, hasItem, hasVisited, needItem) {
+function Location(id, name, description, hasItem, hasVisited) {
 this.id = id;
 this.name = name;
 this.description  = description;
 this.hasItem = hasItem;
-this.hasVisited = hasVisited;
-this.needItem = needItem;  
+this.hasVisited = hasVisited;  
 } 
 
 //Location Prototypes 
@@ -89,8 +88,7 @@ function loadLocal() {
 		Cave.description = "You walk into the cave with the lamp in hand and can see an oppening to the east of the cave."; 
 		Cave.hasItem = false;
 		Cave.hasVisited = false;
-    Cave.needItem = false;
-
+		
 		var Forest = new Location();
 		Forest.id = 11;
 		Forest.name = "Forest";
@@ -111,7 +109,6 @@ function loadLocal() {
 		TempleChamber.description = "You brave the noises and enter the temple and are immediatly confronted by a chimera with a collar around it's neck. The collar reads Zach and the chamber is messy with almost no room to move. With the ancient sword in hand you kill the beast easily."; 
 		TempleChamber.hasItem = false;
 		TempleChamber.hasVisited = false;
-    TempleChamber.needItem = false;
 
 		var TreasureRoom = new Location();
 		TreasureRoom.id = 14;
@@ -146,37 +143,31 @@ function loadLocal() {
 
 }
 //Item Blueprint
+
+
+//Item Prototypes 
+
+//Lantern Prototype
+function loadItem() {
 function Item( id, name, description, takeItem){
 this.id = id; 
 this.name = name;
 this.descrition;
 this.takeItem = takeItem; 
 }
-
-//Item Prototypes 
-
-//Lantern Prototype
-function loadItem() {
+		//Map Prototype
+		var itemMap = new Item();
+		itemMap.id = 2; 
+		itemMap.name = "Map";
+		itemMap.description = "There is a map on the ground."
+		itemMap.takeItem = false;
+		
 		var itemLantern = new Item();
 		itemLantern.id = 7; 
 		itemLantern.name = "Lantern";
 		itemLantern.description = "There is a lantern on the bed post."
 		itemLantern.takeItem = false;
-
-		//Rum Prototype
-		var itemRum = new Item();
-		itemRum.id = 14; 
-		itemRum.name = "Rum";
-		itemRum.description = "The world's best rum."
-		itemRum.takeItem = false;
-
-		//Ancient Sword Prototype
-		var itemAncientSword = new Item();
-		itemAncientSword.id = 9; 
-		itemAncientSword.name = "Ancient Sword"
-		itemAncientSword.description = "There is a sword in an alter."
-		itemAncientSword.takeItem = false;
-
+		
 		//Flint Prototype
 		var itemFlint = new Item();
 		itemFlint.id = 8; 
@@ -184,12 +175,19 @@ function loadItem() {
 		itemFlint.description = "There is flint on the countertop." 
 		itemFlint.takeItem = false;
 
-		//Map Prototype
-		var itemMap = new Item();
-		itemMap.id = 2; 
-		itemMap.name = "Map";
-		itemMap.description = "There is a map on the ground."
-		itemMap.takeItem = false;
+		//Ancient Sword Prototype
+		var itemAncientSword = new Item();
+		itemAncientSword.id = 9; 
+		itemAncientSword.name = "Ancient Sword"
+		itemAncientSword.description = "There is a sword in an alter."
+		itemAncientSword.takeItem = false;
+		
+		//Rum Prototype
+		var itemRum = new Item();
+		itemRum.id = 14; 
+		itemRum.name = "Rum";
+		itemRum.description = "The world's best rum.";
+		itemRum.takeItem = false;
 
 		item[2] = itemMap;
 		item[7] = itemLantern; 

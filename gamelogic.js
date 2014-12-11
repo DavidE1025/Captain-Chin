@@ -1,5 +1,5 @@
 // Global Player location and Point scoring variables 
-var playerLoc = 0; 
+var playerLoc = 14; 
 var score = 0;
 
 //Global Arrays 
@@ -12,11 +12,11 @@ function location_Onload(){
   loadLocal();
   loadItem();
 	scrCounter();
-	//btnDisabler();
+	btnDisabler();
 	hiddenMap();
 	dispMsg(room[playerLoc].description);
-}
-
+}   
+  
 //Displays Text 
 function dispMsg(msg) { 
 	var message = document.getElementById("taDisplay");
@@ -41,7 +41,43 @@ function scrCounter(){
 		dispScore(); 
   }            
 }
-
+   //Button Disabler 
+    function btnDisabler(){ 
+            disNorth();
+            disSouth();
+            disEast();
+            disWest();
+    }
+    
+    function disNorth(){ 
+        if (playerLoc === 0 || playerLoc === 2 ||playerLoc === 6 ||playerLoc === 8 ||playerLoc === 9 ||playerLoc === 13 ||playerLoc === 14){
+              document.getElementById('btnNorth').disabled = true; 
+        } else { 
+            document.getElementById('btnNorth').disabled = false; 
+          }
+    }       
+    function disSouth(){ 
+        if (playerLoc === 0 ||playerLoc === 3 ||playerLoc === 6 ||playerLoc === 7 ||playerLoc === 8 ||playerLoc === 10 ||playerLoc === 11){
+            document.getElementById('btnSouth').disabled = true; 
+        } else { 
+            document.getElementById('btnSouth').disabled = false; 
+          }
+    }        
+    function disEast(){ 
+        if (playerLoc === 2 ||playerLoc === 4 ||playerLoc === 6 ||playerLoc === 7 ||playerLoc === 9 ||playerLoc === 11 ||playerLoc === 12 ||playerLoc === 13||playerLoc === 14){
+            document.getElementById('btnEast').disabled = true;
+        } else { 
+            document.getElementById('btnEast').disabled = false; 
+          }
+    }
+    function disWest(){ 
+        if (playerLoc === 0 ||playerLoc === 2 ||playerLoc === 4 ||playerLoc === 7 ||playerLoc === 8 ||playerLoc === 9 ||playerLoc === 12 ||playerLoc === 14){
+            document.getElementById('btnWest').disabled = true; 
+        } else { 
+            document.getElementById('btnWest').disabled = false;
+          }
+    }
+    
 function puzzleElement(word){
       switch(word){
           case 10: 
