@@ -106,14 +106,14 @@ function loadLocal() {
 		var TempleChamber = new Location();
 		TempleChamber.id = 13;
 		TempleChamber.name = "Temple Chamber";
-		TempleChamber.description = "You brave the noises and enter the temple and are immediatly confronted by a chimera with a collar around it's neck. The collar reads Zach and the chamber is messy with almost no room to move. With the ancient sword in hand you kill the beast easily."; 
+		TempleChamber.description = "You brave the noises and enter the temple and are immediately confronted by a chimera with a collar around it's neck. The collar reads Zach and the chamber is messy with almost no room to move. With the ancient sword in hand you kill the beast easily."; 
 		TempleChamber.hasItem = false;
 		TempleChamber.hasVisited = false;
 
 		var TreasureRoom = new Location();
 		TreasureRoom.id = 14;
 		TreasureRoom.name = "Treasure Room";
-		TreasureRoom.description = "You walk into the treausre room. There is an exit to the south of the room."; 
+		TreasureRoom.description = "You walk into the treausre roomand the door closes behind you. You can no longer walk out to the east. There appears to be a crack in the wall to the south."; 
 		TreasureRoom.hasItem = true;
 		TreasureRoom.hasVisited = false; 
 
@@ -159,39 +159,39 @@ this.takeItem = takeItem;
 		var itemMap = new Item();
 		itemMap.id = 2; 
 		itemMap.name = "Map";
-		itemMap.description = "There is a map on the ground."
+		itemMap.description = "There is a map on the ground.";
 		itemMap.takeItem = false;
 		
 		var itemLantern = new Item();
 		itemLantern.id = 7; 
 		itemLantern.name = "Lantern";
-		itemLantern.description = "There is a lantern on the bed post."
+		itemLantern.description = "There is a lantern on the bed post.";
 		itemLantern.takeItem = false;
 		
 		//Flint Prototype
 		var itemFlint = new Item();
 		itemFlint.id = 8; 
 		itemFlint.name = "Flint";
-		itemFlint.description = "There is flint on the countertop." 
+		itemFlint.description = "There is flint on the countertop."; 
 		itemFlint.takeItem = false;
 
 		//Ancient Sword Prototype
 		var itemAncientSword = new Item();
 		itemAncientSword.id = 9; 
-		itemAncientSword.name = "Ancient Sword"
-		itemAncientSword.description = "There is a sword in an alter."
+		itemAncientSword.name = "Ancient Sword";
+		itemAncientSword.description = "There is a sword in an alter.";
 		itemAncientSword.takeItem = false;
 		
 		//Rum Prototype
 		var itemRum = new Item();
-		itemRum.id = 14; 
-		itemRum.name = "Rum";
-		itemRum.description = "The world's best rum.";
-		itemRum.takeItem = false;
+    itemRum.id = 14;
+    itemRum.name = "The Worlds Best Rum"
+    itemRum.description = "The treasure is the world's best rum.";
+    itemRum.takeItem = false;
 
-		item[2] = itemMap;
-		item[7] = itemLantern; 
-		item[8] = itemFlint;
-		item[9] = itemAncientSword; 
-		item[14] = itemRum;
+		item[2] = itemMap,
+		item[7] = itemLantern, 
+		item[8] = itemFlint,
+		item[9] = itemAncientSword, 
+    item[14] = itemRum;
 }

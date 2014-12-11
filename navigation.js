@@ -1,8 +1,8 @@
 // Global Variables for Navi matrix
-var North = 0
-var South = 1
-var East = 2
-var West = 3 
+var North = 0;
+var South = 1;
+var East = 2;
+var West = 3;
  
 // Matrix used for navigation of the game
 var navi = [//  N   S   E   W
@@ -21,7 +21,7 @@ var navi = [//  N   S   E   W
         /*12*/[13 ,11, -1, -1],
         /*13*/[-1, 12, -1, 14],
         /*14*/[-1,  2, -1, -1],
-        /*15*/[-1, -1, -1, -1],
+        /*15*/[-1, -1, -1, -1]
         ];
         
 //Directional Functions

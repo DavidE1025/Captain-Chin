@@ -91,7 +91,7 @@ function puzzleElement(word){
                 playerDeath("Zach smothered you in his pile of filth and you suffocated. ");
             }
           break;
-          case 1: 
+          case 0: 
             if (item[14].takeItem === true){ 
                 gameFinale();
             }
