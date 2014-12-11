@@ -121,8 +121,8 @@ function loadLocal() {
 		Death.id = 15;
 		Death.name = "Death";
 		Death.description = "Game Over"; 
-		TreasureRoom.hasItem = false;
-		TreasureRoom.hasVisited = true;
+		Death.hasItem = false;
+		Death.hasVisited = true;
 										 
 		room[0] = Ship,
 		room[1] = Beach,
@@ -193,5 +193,5 @@ this.takeItem = takeItem;
 		item[7] = itemLantern, 
 		item[8] = itemFlint,
 		item[9] = itemAncientSword, 
-    item[14] = itemRum;
+    item[14] = itemRum
 }

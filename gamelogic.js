@@ -19,12 +19,12 @@ function location_Onload(){
   
 //Displays Text 
 function dispMsg(msg) { 
-	var message = document.getElementById("taDisplay");
+	  var message = document.getElementById("taDisplay");
     if (room[playerLoc].hasItem === true && item[playerLoc].takeItem === false){ 
       message.value = msg + " " + item[playerLoc].description + "\n\n" + message.value;
-    }else{  
+    } else {  
       message.value = msg + "\n\n" + message.value;
-     }
+    }
 }       
 
 //Displays Score
