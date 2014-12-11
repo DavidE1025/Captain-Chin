@@ -1,5 +1,5 @@
 // Global Player location and Point scoring variables 
-var playerLoc = 14; 
+var playerLoc = 0; 
 var score = 0;
 
 //Global Arrays 
